@@ -4,6 +4,8 @@ metadata:
   name: {{ include "java-app.fullname" . }}
   labels:
     {{- include "java-app.labels" . | nindent 4 }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
     {{- with .Values.labels }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
